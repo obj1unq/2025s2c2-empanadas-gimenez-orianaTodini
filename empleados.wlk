@@ -50,14 +50,23 @@ object baigorria {
 }
 
 object gimenez {
-    var capital = 300000
+    var capital = 0
 
    method pagarSueldo(empleado) {
-
+    self.validarPagarSueldo(empleado)
     capital = capital - empleado.sueldoActual()
      empleado.cobrarSueldo()
      }
    method capital (){
     return capital
    }
+  method validarPagarSueldo(empleado) {
+        if (not self.puedePagarSueldo(empleado)) {
+            self.error("No hay suficiente capital para pagar el sueldo de " + empleado)
+        }
+    }
+
+    method puedePagarSueldo(empleado) {
+        return capital >= empleado.sueldoActual()
+    }
 }

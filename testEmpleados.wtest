@@ -1,0 +1,9 @@
+import empleados.* 
+
+describe " tests de empleados "{
+    test "gimenez no puede pagar el sueldo " {
+        assert.throwsException({gimenez.pagarSueldo(baigorria)})
+        assert.equals(10000,gimenez.capital()) 
+    }
+}
+
